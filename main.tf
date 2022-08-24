@@ -25,7 +25,7 @@ provider "dcnm" {
 }
 
 module "test-acl" {
-  source = "https://github.com/cisco-apjc-cloud-se/terraform-dcnm-acl"
+  source = "github.com/cisco-apjc-cloud-se/terraform-dcnm-acl"
 
   content   = var.content
   switches  = {
