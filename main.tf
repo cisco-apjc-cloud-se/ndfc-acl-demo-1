@@ -24,10 +24,16 @@ provider "dcnm" {
   platform = var.platform
 }
 
+## Example 1 - Single ACL Inline ##
+
 module "test-acl" {
   source = "github.com/cisco-apjc-cloud-se/terraform-dcnm-acl"
 
-  content   = var.content
+  content = <<-EOT
+  ip access-list TF-TEST-ACL
+    10 permit ip any any
+    20 permit ip 1.1.1.1/32 2.2.2.2/32
+  EOT
   switches  = {
     DC1-LEAF-1 = {
       name = "DC1-LEAF-1"
@@ -38,4 +44,14 @@ module "test-acl" {
       fabric = "CML2-DC1"
     }
   }
+}
+
+## Example 2 - Multiple ACLs from Input Variable ##
+
+module "acls" {
+  for_each = var.acls
+  source = "github.com/cisco-apjc-cloud-se/terraform-dcnm-acl"
+
+  content   = each.value.content
+  switches  = each.value.switches
 }

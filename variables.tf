@@ -15,16 +15,16 @@ variable "platform" {
   type = string
 }
 
-# variable "acls" {
-#   type = map(object({
-#     name = string
-#     content = map(string)
-#     switches = list(string)
-#   }))
-# }
 
 ### ACL Content ###
 
-variable "content" {
-  type = string
+# Example 2 - Multiple ACLs #
+variable "acls" {
+  type = map(object({
+    content   = string
+    switches  = map(object({
+      name    = string
+      fabric  = string
+    }))
+  }))
 }
