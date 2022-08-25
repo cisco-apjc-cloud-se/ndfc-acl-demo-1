@@ -1,8 +1,4 @@
-# content = <<EOT
-# ip access-list TF-TEST-ACL
-#   10 permit ip any any
-#   20 permit ip 1.1.1.1/32 2.2.2.2/32
-# EOT
+### Multiple ACL Input Variable ###
 
 acls = {
   test-acl-1 = {
