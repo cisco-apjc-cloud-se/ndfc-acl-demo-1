@@ -35,13 +35,13 @@ module "test-acl" {
     20 permit ip 1.1.1.1/32 2.2.2.2/32
   EOT
   switches  = {
-    DC1-LEAF-1 = {
-      name = "DC1-LEAF-1"
-      fabric = "CML2-DC1"
+    DC1-LEAF1 = {
+      name = "DC1-LEAF1"
+      fabric = "AUTOMATION-LAB-DC1"
     }
-    DC1-LEAF-2 = {
-      name = "DC1-LEAF-2"
-      fabric = "CML2-DC1"
+    DC1-LEAF2 = {
+      name = "DC1-LEAF2"
+      fabric = "AUTOMATION-LAB-DC1"
     }
   }
 }
