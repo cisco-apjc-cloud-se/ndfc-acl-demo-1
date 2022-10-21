@@ -27,7 +27,8 @@ provider "dcnm" {
 ## Example 1 - Single ACL Inline ##
 
 module "test-acl" {
-  source = "github.com/cisco-apjc-cloud-se/terraform-dcnm-freeform"
+  source = "terraform-cisco-modules/dcnm/freeform"
+  version = "1.0.0"
 
   content = <<-EOT
   ip access-list TF-TEST-ACL
@@ -50,7 +51,8 @@ module "test-acl" {
 
 module "acls" {
   for_each = var.acls
-  source = "github.com/cisco-apjc-cloud-se/terraform-dcnm-freeform"
+  source = "terraform-cisco-modules/dcnm/freeform"
+  version = "1.0.0"
 
   content   = each.value.content
   switches  = each.value.switches
@@ -60,7 +62,8 @@ module "acls" {
 ## Example 3 - Single ACL read from text file ##
 
 module "file-acl" {
-  source = "github.com/cisco-apjc-cloud-se/terraform-dcnm-freeform"
+  source = "terraform-cisco-modules/dcnm/freeform"
+  version = "1.0.0"
 
   content = file("example_acl.txt")
   switches  = {
